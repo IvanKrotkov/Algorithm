@@ -103,6 +103,20 @@ public class dMyList {
           }
         } while (needSort);
     }
+    public void reverse(){
+        if(head != null && head.next != null){
+            Node node = head;
+            Node temp = head;
+            head = tail;
+            tail = temp;
+            while (node != null){
+                temp = node.next;
+                node.next = node.prev;
+                node.prev = temp;
+                node = node.prev;
+            }
+        }
+    }
     public static void main(String[] args) {
         dMyList list = new dMyList();
         for (int i = 0; i < 6; i++) {
@@ -116,7 +130,9 @@ public class dMyList {
 //        list.print();
 //        list.popBack();
 //        list.print();
-        list.sort();
+//        list.sort();
+        list.print();
+        list.reverse();
         list.print();
     }
 }
